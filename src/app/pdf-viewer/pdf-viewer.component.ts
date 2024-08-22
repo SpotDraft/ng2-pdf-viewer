@@ -471,6 +471,7 @@ export class PdfViewerComponent
       cMapPacked: true,
       enableXfa: true
     };
+    params.isEvalSupported = false; // http://cve.org/CVERecord?id=CVE-2024-4367
 
     if (srcType === 'string') {
       params.url = this.src;
