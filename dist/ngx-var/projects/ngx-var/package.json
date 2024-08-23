@@ -1,0 +1,20 @@
+{
+  "name": "ng2-pdf-viewer/ngx-var/projects/ngx-var",
+  "version": "0.1.5",
+  "license": "MIT",
+  "repository": "https://github.com/anirudhvarma12/ngx-var",
+  "peerDependencies": {
+    "@angular/common": "^9.1.13",
+    "@angular/core": "^9.1.13"
+  },
+  "dependencies": {
+    "tslib": "^1.10.0"
+  },
+  "module": "../../../fesm2015/ng2-pdf-viewer-ngx-var-projects-ngx-var.mjs",
+  "es2020": "../../../fesm2020/ng2-pdf-viewer-ngx-var-projects-ngx-var.mjs",
+  "esm2020": "../../../esm2020/ngx-var/projects/ngx-var/ng2-pdf-viewer-ngx-var-projects-ngx-var.mjs",
+  "fesm2020": "../../../fesm2020/ng2-pdf-viewer-ngx-var-projects-ngx-var.mjs",
+  "fesm2015": "../../../fesm2015/ng2-pdf-viewer-ngx-var-projects-ngx-var.mjs",
+  "typings": "ng2-pdf-viewer-ngx-var-projects-ngx-var.d.ts",
+  "sideEffects": false
+}

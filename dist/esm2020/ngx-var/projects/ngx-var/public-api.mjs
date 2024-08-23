@@ -1,0 +1,6 @@
+/*
+ * Public API Surface of ngx-var
+ */
+export * from './lib/ngx-var.module';
+export * from './lib/ngx-var.directive';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHVibGljLWFwaS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uL25neC12YXIvcHJvamVjdHMvbmd4LXZhci9zcmMvcHVibGljLWFwaS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7R0FFRztBQUNILGNBQWMsc0JBQXNCLENBQUM7QUFDckMsY0FBYyx5QkFBeUIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qXG4gKiBQdWJsaWMgQVBJIFN1cmZhY2Ugb2Ygbmd4LXZhclxuICovXG5leHBvcnQgKiBmcm9tICcuL2xpYi9uZ3gtdmFyLm1vZHVsZSc7XG5leHBvcnQgKiBmcm9tICcuL2xpYi9uZ3gtdmFyLmRpcmVjdGl2ZSc7XG4iXX0=

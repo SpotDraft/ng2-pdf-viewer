@@ -176,7 +176,7 @@ export class AppComponent implements OnInit {
    * @param destination pdf navigate to
    */
   navigateTo(destination: any) {
-    this.pdfComponent.pdfLinkService.navigateTo(destination);
+    this.pdfComponent.pdfLinkService.goToDestination(destination);
   }
 
   /**
@@ -206,28 +206,31 @@ export class AppComponent implements OnInit {
     console.log('(page-initialized)', e);
   }
 
+  /**
+   * Page change callback, which is called when a page is changed (called multiple times)
+   *
+   * @param e number
+   */
+  pageChange(e: number) {
+    console.log('(page-change)', e);
+  }
+
   searchQueryChanged(newQuery: string) {
-    if (newQuery !== this.pdfQuery) {
-      this.pdfQuery = newQuery;
-      this.pdfComponent.pdfFindController.executeCommand('find', {
-        query: this.pdfQuery,
-        highlightAll: true
-      });
-    } else {
-      this.pdfComponent.pdfFindController.executeCommand('findagain', {
-        query: this.pdfQuery,
-        highlightAll: true
-      });
-    }
+    const type = newQuery !== this.pdfQuery ? '' : 'again';
+    this.pdfQuery = newQuery;
+
+    this.pdfComponent.eventBus.dispatch('find', {
+      type,
+      query: this.pdfQuery,
+      highlightAll: true,
+      caseSensitive: false,
+      phraseSearch: true,
+      // findPrevious: undefined,
+    });
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-
-    if (event.target.innerWidth <= 768)
-      this.mobile = true;
-    else
-      this.mobile = false;
-      
+    this.mobile = event.target.innerWidth <= 768;
   }
 }

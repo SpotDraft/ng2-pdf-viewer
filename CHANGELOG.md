@@ -1,5 +1,94 @@
 # Changelog
 
+## 9.1.5 - 16.04.2023
+
+- [[#992](https://github.com/VadimDez/ng2-pdf-viewer/issues/992)] - scale not correctly updated on pdf-viewer rotation for pdf page with 90° rotation
+- [[#993](https://github.com/VadimDez/ng2-pdf-viewer/pull/993)] - fix #992 : fix rotation on pdf with included rotation
+
+## 9.1.4 - 22.02.2023
+
+- [[#943](https://github.com/VadimDez/ng2-pdf-viewer/pull/943)] - chore(deps): bump ejs and webpack-bundle-analyzer
+- [[#971](https://github.com/VadimDez/ng2-pdf-viewer/pull/971)] - feat: Support version specific pdf.worker.js url
+
+## 9.1.3 - 21.11.2022
+- [[#947](https://github.com/VadimDez/ng2-pdf-viewer/issues/947)] - Second pdf loaded not navigate on the second page with [show-all]="false"
+- [[#948](https://github.com/VadimDez/ng2-pdf-viewer/pull/948)] - fix #947 : reset this._latestScrolledPage on clear method
+
+## 9.1.2 - 11.09.2022
+- [[#925](https://github.com/VadimDez/ng2-pdf-viewer/issues/925)] - 9.1.1 version lacks pdfFindController.executeCommand
+- [[#927](https://github.com/VadimDez/ng2-pdf-viewer/pull/927)] - Fix search
+- [[#926](https://github.com/VadimDez/ng2-pdf-viewer/pull/926)] - Improve arrangement of annotations
+
+### Breaking Change
+
+Since `FindController.executeCommand` is deprecated, you should now use `eventBus` to do search. Example:
+
+```typescript
+@ViewChild(PdfViewerComponent) private pdfComponent: PdfViewerComponent;
+
+search(stringToSearch: string) {
+  this.pdfComponent.eventBus.dispatch('find', {
+    query: stringToSearch, type: 'again', caseSensitive: false, findPrevious: undefined, highlightAll: true, phraseSearch: true
+  });
+}
+```
+
+## 9.1.1 - 03.09.2022
+
+- [[#916](https://github.com/VadimDez/ng2-pdf-viewer/issues/916)] - (pageChange) event not getting emitted - Single Page Viewer
+- [[#921](https://github.com/VadimDez/ng2-pdf-viewer/pull/921)] - Issue 916 - (pageChange) event not getting emitted - Single Page Viewer
+
+## 9.1.0 - 24.07.2022
+
+- [[#900](https://github.com/VadimDez/ng2-pdf-viewer/pull/900)] - Upgrade pdfjs-dist to ~2.14.305
+- [[#901](https://github.com/VadimDez/ng2-pdf-viewer/pull/901)] - Fix arrangement of annotations #824
+
+## 9.0.0 - 01.04.2022
+* [[#873](https://github.com/VadimDez/ng2-pdf-viewer/pull/873)] - feat: Updated pdfjs-dist version to 2.13.216 from 2.11.338
+* [[#879](https://github.com/VadimDez/ng2-pdf-viewer/pull/879)] - Update css for the version 2.13.216
+* [[#880](https://github.com/VadimDez/ng2-pdf-viewer/pull/880)] - Use minified worker
+* [[#882](https://github.com/VadimDez/ng2-pdf-viewer/pull/882)] - Inline images
+* [[#883](https://github.com/VadimDez/ng2-pdf-viewer/pull/883)] - Drop legacy support
+
+## 8.0.1
+* [[#855](https://github.com/VadimDez/ng2-pdf-viewer/issues/855)] - Can't load document after error
+* [[#856](https://github.com/VadimDez/ng2-pdf-viewer/pull/856)] - fix can't load document after error
+
+## 8.0.0
+* [[#838](https://github.com/VadimDez/ng2-pdf-viewer/pull/838)] - fix css selector for text selection in chrome
+* [[#857](https://github.com/VadimDez/ng2-pdf-viewer/pull/857)] - Angular 13 Update | Enable Ivy
+* [[#852](https://github.com/VadimDez/ng2-pdf-viewer/issues/852)] - Encourage the library authors to publish an Ivy distribution.
+* [[#854](https://github.com/VadimDez/ng2-pdf-viewer/issues/854)] - TypeError: Cannot read properties of null (reading 'selectors')
+* [[#863](https://github.com/VadimDez/ng2-pdf-viewer/issues/863)] - Loader is stuck when upgrade to newest version
+
+## 7.0.2
+* [[#829](https://github.com/VadimDez/ng2-pdf-viewer/pull/829)] - feat: upgrade to pdfjs-dist 2.11.338
+* [[#834](https://github.com/VadimDez/ng2-pdf-viewer/pull/834)] - Give sane default to host
+* [[#805](https://github.com/VadimDez/ng2-pdf-viewer/issues/805)] - width of pdf page exceed the maximum width and got trimmed from the right side
+* [[#811](https://github.com/VadimDez/ng2-pdf-viewer/issues/811)] - .ng2-pdf-viewer-container not in parent container
+* [[#828](https://github.com/VadimDez/ng2-pdf-viewer/issues/828)] - can't now show digital signature PKCS#7
+
+### Breaking change (Since 7.0.0)
+Now you need to specify how much space `pdf-viewer` element should take by using CSS, so either set `width` and `height`, use `flexbox` or use something like `positioning`.
+
+##### Example using height and width:
+`<pdf-viewer [src]="src" [original-size]="false" style="width: 400px; height: 500px"></pdf-viewer>`
+
+##### Example using absolute positioning to take entire page:
+`<pdf-viewer [src]="src" [original-size]="false" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0"></pdf-viewer>`
+
+
+## 7.0.1
+* [[#779](https://github.com/VadimDez/ng2-pdf-viewer/pull/779)] - perf: do not run change detection on resize events
+* [[#783](https://github.com/VadimDez/ng2-pdf-viewer/pull/783)] - fix: switch to es5 builds
+* [[#780](https://github.com/VadimDez/ng2-pdf-viewer/issues/780)] - Version 7.0.0 is not working and build is failing: Module parse failed: Unexpected token
+
+## 7.0.0
+* [[#721](https://github.com/VadimDez/ng2-pdf-viewer/pull/721)] - fix: release some memory leaks
+* [[#723](https://github.com/VadimDez/ng2-pdf-viewer/pull/723)] - fix: remove event listeners from the event bus when the view is destroyed
+* [[#719](https://github.com/VadimDez/ng2-pdf-viewer/pull/719)] - feat: upgrade to Angular 11
+* [[#777](https://github.com/VadimDez/ng2-pdf-viewer/pull/777)] - Update pdfjs-dist to 2.7.570
+
 ## 6.4.1
 * [[#739](https://github.com/VadimDez/ng2-pdf-viewer/issues/739)] - Module '"@types/pdfjs-dist"' has no exported member 'PDFPromise'
 * [[#740](https://github.com/VadimDez/ng2-pdf-viewer/pull/740)] - Issue #739 fix: change @types/pdfjs-dist to update only patch versions
